@@ -1,0 +1,10 @@
+# Local player data contains session tokens. Never commit it.
+save/
+node_modules/
+.env
+.env.*
+!.env.example
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
