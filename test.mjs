@@ -16,7 +16,7 @@ test('every fish has photographic family traits and book grows in size and rarit
 test('multiplayer, catches and shop are server controlled',async()=>{
  // Tests launch an isolated copy so production saves are untouched.
  const {mkdtemp,copyFile,rm,mkdir,writeFile,readFile}=await import('node:fs/promises');const {tmpdir}=await import('node:os');const {join}=await import('node:path');const {pathToFileURL}=await import('node:url');
- const dir=await mkdtemp(join(tmpdir(),'mono-fishing-test-'));for(const f of ['server.mjs','data.mjs','fish-profiles.mjs','world.mjs'])await copyFile(new URL(f,import.meta.url),join(dir,f));
+ const dir=await mkdtemp(join(tmpdir(),'mono-fishing-test-'));for(const f of ['server.mjs','data.mjs','fish-profiles.mjs','world.mjs','game-core.mjs'])await copyFile(new URL(f,import.meta.url),join(dir,f));
  await mkdir(join(dir,'save'));await writeFile(join(dir,'save','players.json'),JSON.stringify([{token:'funded-test',id:'funded-player',name:'一般',room:'test',scene:0,angle:1,points:1000,inventory:[],owned:[],skin:{},decor:[],seen:Date.now()}]));
  const {server}=await import(pathToFileURL(join(dir,'server.mjs')));await new Promise(r=>server.listen(0,'127.0.0.1',r));const base='http://127.0.0.1:'+server.address().port;const streams=[];
  const post=async(action,data)=>{const res=await fetch(base+'/api/'+action,{method:'POST',body:JSON.stringify(data)});return {status:res.status,data:await res.json()};};

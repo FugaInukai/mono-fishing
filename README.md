@@ -1,5 +1,7 @@
 # MONO FISHING
 
+起動とVercel公開の手順は [DEPLOY.md](DEPLOY.md) を参照してください。ローカル版は `node server.mjs`、Vercel版は外部Redisへの接続が必要です。
+
 白黒の釣りゲーム。追加ライブラリ不要、Node.js 20以上で起動します。
 
 ## 起動
